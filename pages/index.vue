@@ -1,40 +1,43 @@
 <template>
-  <div class="container">
-    <div>
-      <logo />
-      <h1 class="title">
-        inventory
-      </h1>
-      <h2 class="subtitle">
-        My fantastic Nuxt.js project
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div class="flex h-screen w-full bg-gray-700">
+      <div class="m-auto w-full px-5 md:w1/3">
+      <form>
+          <inputElement
+            :labelName="'EMAIL'"
+            :labelId="'email'"
+            :inputType="'email'"
+            :model="email"
+            @input="email = $event"
+            :disabled="false"
+          />
+          <inputElement
+            :labelName="'PASSWORD'"
+            :labelId="'password'"
+            :inputType="'password'"
+            :model="password"
+            @input="password = $event"
+            :disabled="false"
+          />
+          <button type="button"> SIGN IN </button?
+      </form>
   </div>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
+  import Logo from '~/components/Logo.vue'
+  import InputElement from "~/components/items/Input.vue";
 
-export default {
-  components: {
-    Logo
-  }
+  export default {
+    components: {
+      Logo,
+      InputElement
+    },
+  data: function(){
+      return{
+        email: "",
+        password: ""
+        }
+    }
 }
 </script>
 
